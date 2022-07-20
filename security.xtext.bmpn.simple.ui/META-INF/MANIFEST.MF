@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: security.xtext.bmpn.simple.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: security.xtext.bmpn.simple.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: security.xtext.bmpn.simple.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: security.xtext.bmpn.simple,
+ security.xtext.bmpn.simple.ide,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder,
+ org.eclipse.emf.ecore.editor;bundle-version="2.17.0",
+ org.eclipse.xtext.bpmn,
+ org.eclipse.bpmn2;bundle-version="1.5.1"
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: security.xtext.bmpn.simple.ui.internal,
+ security.xtext.bmpn.simple.ui.quickfix,
+ security.xtext.bmpn.simple.ui.contentassist
+Bundle-Activator: security.xtext.bmpn.simple.ui.internal.BPSecDsLActivatorEx

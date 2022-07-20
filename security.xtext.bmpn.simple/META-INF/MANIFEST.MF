@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: security.xtext.bmpn.simple
+Bundle-ManifestVersion: 2
+Bundle-Name: security.xtext.bmpn.simple
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: security.xtext.bmpn.simple; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.bpmn2;bundle-version="1.5.1",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
+ org.eclipse.xtext.bpmn;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: security.xtext.bmpn.simple.bPSecDsl,
+ security.xtext.bmpn.simple.services,
+ security.xtext.bmpn.simple.validation,
+ security.xtext.bmpn.simple,
+ security.xtext.bmpn.simple.serializer,
+ security.xtext.bmpn.simple.parser.antlr.internal,
+ security.xtext.bmpn.simple.bPSecDsl.impl,
+ security.xtext.bmpn.simple.generator,
+ security.xtext.bmpn.simple.parser.antlr,
+ security.xtext.bmpn.simple.bPSecDsl.util,
+ security.xtext.bmpn.simple.scoping
+Import-Package: org.apache.log4j

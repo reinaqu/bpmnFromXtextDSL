@@ -1,7 +1,7 @@
 # bpmnFromXtextDSL
 
 This repository is a small proof of concept to build a small Xtext DSL that references elements from BPMN2 models.
-The idea is to reuse elements predefined BPMN2 models, in such a way that you want to reference some elements of these models from an Xtext DSL. I was inspired by the following posts by Tamas Miklossy and Christian Dietrich:
+The idea is to reuse elements predefined in BPMN2 models, in such a way that you want to reference some elements of these models from an Xtext DSL. I was inspired by the following posts by Tamas Miklossy and Christian Dietrich:
 
 * [How to reference UML elements from Xtext DSLs](https://blogs.itemis.com/en/how-to-reference-uml-elements-from-xtext-dsls)
 * [Combining EMF models with Xtext DSLs](https://blogs.itemis.com/en/combining-emf-models-with-xtext-dsls?hsLang=en)

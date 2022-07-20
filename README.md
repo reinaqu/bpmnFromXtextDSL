@@ -9,3 +9,35 @@ The idea is to reuse some elements of predefined BPMN2 models, in such a way tha
 
 Finally, the process was not as easy as I expected, and without the help of Christian Dietrich in the [Eclipse Forums](https://www.eclipse.org/forums/index.php/m/1853751/#msg_1853751) I would not have obtained the expected result. Thus, this repository has as aim the documentation of the entire process in case is useful for someone else.
 
+
+
+# DSL Ecore Metamodel
+
+
+# DSL Grammar
+
+```
+Policy:
+	'policy' name=ID
+	'declarations:'
+	(declarations+=Declaration)+
+	;
+Declaration:
+	(processes+=Process)+
+	'users'
+	(users+=User)(',' users+=User)*
+ ;
+
+Process: 
+	'process' name=ID  'mapsTo' refProcess=[bpmn2::Process] '{'
+		(tasks+=Task)+  
+	'}'
+; 
+
+Task:
+	'task' name=ID "mapsTo" refTask=[bpmn2::Activity]
+;
+User:
+	name=ID
+;
+````

@@ -9,12 +9,15 @@ The idea is to reuse some elements of predefined BPMN2 models, in such a way tha
 
 Finally, the process was not as easy as I expected, and without the help of Christian Dietrich in the [Eclipse Forums](https://www.eclipse.org/forums/index.php/m/1853751/#msg_1853751) I would not have obtained the expected result. Thus, this repository has as aim the documentation of the entire process in case is useful for someone else.
 
+#### I. Preparation steps
+1. Install the latest version of the `BPMN2 Modeler` and the `Xtext Complete SDK` from the Eclipse Release Train.
+![Installation.jpg](images/1-Installation.JPG)
 
+2. Create the security.xtext.bmpn.simple project based on the [Xtext 15 Minutes Tutorial](https://www.eclipse.org/Xtext/documentation/102_domainmodelwalkthrough.html). The meta-model of the security.xtext.bmpn.simple project is
 
-# DSL Ecore Metamodel
+![bPSecDslMM.jpg](./images/bPSecDslMM.png)
 
-
-# DSL Grammar
+and the Xtext grammmar is
 
 ```
 Policy:
@@ -41,3 +44,9 @@ User:
 	name=ID
 ;
 ````
+Both describe a policy which contains a set of one or more declararions. One declaration contains one or more processes and one or more users. Furthermore, one process contains one or more tasks. One process is mapped to one Process of a BPMN2 model and one task is mapped to one Activity of a BPMN2 model. To be able to **use BPMN elements in our policy**, the following modifications are necessary:
+
+
+
+
+

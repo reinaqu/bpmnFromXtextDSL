@@ -48,7 +48,7 @@ Both describe a policy which contains a set of one or more declararions. One dec
 
 #### II. Modifications in the `security.xtext.bmpn.simple` project
 
-3. Add the plugin `org.eclipse.bpmn2` to the `Require-Bundle` section in the [MANIFEST.MF]([https://github.com/itemis/itemis-blog/blob/referencing-uml-elements-from-xtext-dsls/org.example.domainmodel/META-INF/MANIFEST.MF](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/security.xtext.bmpn.simple/META-INF/MANIFEST.MF#L12) file
+3. Add the plugin `org.eclipse.bpmn2` to the `Require-Bundle` section in the [MANIFEST.MF](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/security.xtext.bmpn.simple/META-INF/MANIFEST.MF#L12) file
 
 
 

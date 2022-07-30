@@ -11,9 +11,9 @@ Finally, the process was not as easy as I expected, and without the help of Chri
 
 #### I. Preparation steps
 1. Install the latest version of the `BPMN2 Modeler` and the `Xtext Complete SDK` from the Eclipse Release Train.
-![Installation.jpg](images/1-Installation.JPG)
+![Installation.jpg](./images/1-Installation.jpg)
 
-2. Create the security.xtext.bmpn.simple project based on the [Xtext 15 Minutes Tutorial](https://www.eclipse.org/Xtext/documentation/102_domainmodelwalkthrough.html). The meta-model of the security.xtext.bmpn.simple project is
+2. Create the security.xtext.bmpn.simple project based on the [Xtext 15 Minutes Tutorial](https://www.eclipse.org/Xtext/documentation/102_domainmodelwalkthrough.html). The meta-model of the `security.xtext.bmpn.simple` project is
 
 ![bPSecDslMM.jpg](./images/bPSecDslMM.png)
 
@@ -45,6 +45,10 @@ User:
 ;
 ````
 Both describe a policy which contains a set of one or more declararions. One declaration contains one or more processes and one or more users. Furthermore, one process contains one or more tasks. One process is mapped to one Process of a BPMN2 model and one task is mapped to one Activity of a BPMN2 model. To be able to **use BPMN elements in our policy**, the following modifications are necessary:
+
+#### II. Modifications in the `security.xtext.bmpn.simple` project
+
+3. Add the plugin `org.eclipse.bpmn2` to the `Require-Bundle` section in the [MANIFEST.MF]([https://github.com/itemis/itemis-blog/blob/referencing-uml-elements-from-xtext-dsls/org.example.domainmodel/META-INF/MANIFEST.MF](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/security.xtext.bmpn.simple/META-INF/MANIFEST.MF#L12) file
 
 
 

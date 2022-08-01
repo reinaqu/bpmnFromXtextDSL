@@ -63,7 +63,7 @@ Both describe a policy which contains a set of one or more declararions. One dec
 7.  Add the plugins `org.eclipse.xtext.bpmn` (plugin of the previous project), `org.eclipse.bpmn2`, `org.eclipse.text-ui` and `org.eclipse.text-ui` to the `Require-Bundle` section in the [MANIFEST.MF](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/org.eclipse.xtext.bpmn.ui/META-INF/MANIFEST.MF#L8-L11). 
 
 8. Create a `org.eclipse.xtext.bpmn.ui` package and add the following classes to this package.
-	* [Activator.java] (https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/org.eclipse.xtext.bpmn.ui/src/org/eclipse/xtext/bpmn/ui/Activator.java)
+	* [Activator.java](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/org.eclipse.xtext.bpmn.ui/src/org/eclipse/xtext/bpmn/ui/Activator.java)
 	* [BpmnUiModule.java](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/org.eclipse.xtext.bpmn.ui/src/org/eclipse/xtext/bpmn/ui/BpmnUiModule.java)
 	* [ExecutableExtensionFactory.java](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/org.eclipse.xtext.bpmn.ui/src/org/eclipse/xtext/bpmn/ui/ExecutableExtensionFactory.java)
 	

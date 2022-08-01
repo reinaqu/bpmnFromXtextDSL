@@ -84,6 +84,11 @@ referencedResource="platform:/resource/org.eclipse.bpmn2/model/BPMN20.genmodel"
 ````
 
 12. Generate all the Xtext artifacts.
+
+13. Modify the generated [BPMN2RuntimeModule](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/security.xtext.bmpn.simple/src/security/xtext/bmpn/simple/BPMN2RuntimeModule.xtend) xtend class by adding the new method `bindXtextResourceSet`.
+
+14. Add the following new xtend classes:
+	* [BPMN2LanguageConstants](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/security.xtext.bmpn.simple/src/security/xtext/bmpn/simple/BPMN2LanguageConstants.xtend)
  
 
 

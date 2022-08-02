@@ -115,28 +115,54 @@ referencedResource="platform:/resource/org.eclipse.bpmn2/model/BPMN20.genmodel"
 Tasks are included in processes, so  when autocompleting a Task with Ctrl+Space only the activities that are included in the process that contains the task we have to refer to should appear.
 
 ```
-	public IScope getScope(EObject context, EReference reference) {
-		if (reference == BPSecDslPackage.Literals.TASK__REF_TASK) {
-			security.xtext.bmpn.simple.bPSecDsl.Process p = 
-					EcoreUtil2.getContainerOfType(context, 
-							         security.xtext.bmpn.simple.bPSecDsl.Process.class);
-			List<Activity> tasks = new ArrayList<>();
-			for (EObject o : p.getRefProcess().eContents()) {
-				if (o instanceof Activity) {
-					tasks.add((Activity) o);
-				}
+public IScope getScope(EObject context, EReference reference) {
+	if (reference == BPSecDslPackage.Literals.TASK__REF_TASK) {
+		security.xtext.bmpn.simple.bPSecDsl.Process p = 
+				EcoreUtil2.getContainerOfType(context, 
+						         security.xtext.bmpn.simple.bPSecDsl.Process.class);
+		List<Activity> tasks = new ArrayList<>();
+		for (EObject o : p.getRefProcess().eContents()) {
+			if (o instanceof Activity) {
+				tasks.add((Activity) o);
 			}
-			return Scopes.scopeFor(tasks, (Activity e)-> {
-				String id = e.getId();
-				return QualifiedName.create(id);
-			}, IScope.NULLSCOPE);
 		}
-		return super.getScope(context, reference);
+		return Scopes.scopeFor(tasks, (Activity e)-> {
+			String id = e.getId();
+			return QualifiedName.create(id);
+		}, IScope.NULLSCOPE);
 	}
+	return super.getScope(context, reference);
+}
 ```
+#### IV. Modifications in the `security.xtext.bmpn.simple.ui` generated project
 
+16. Add the plugins `org.eclipse.bpmn2`, `org.eclipse.emf.ecore.editor` and  `org.eclipse.xtext.bpmn` (the previous project) to the `Require-Bundle` section in the [MANIFEST.MF](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/security.xtext.bmpn.simple.ui/META-INF/MANIFEST.MF#L19-L21) file.
 
-Finally, it deserves to mention that some of the problems I had, above all with Ctrl+Space to autocomplete elements from the bpmn2 model seems to be related to a bug similar to the  one introduced in this [post](https://bugs.eclipse.org/bugs/show_bug.cgi?id=327478). When executing a second instance of Eclipse to test the projects, the Ctrl+Space did not work properly. The problem seems to be related to loading properly resources. By closing the bpsec file (the dsl) and opening it again the problme seems to disappear.
+17. Add the following new xtend classes:
+	* [BPMN2ExecutableExtensionFactory](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/security.xtext.bmpn.simple.ui/src/security/xtext/bmpn/simple/ui/BPMN2ExecutableExtensionFactory.xtend)
+	* [ReflectiveTreeEditorOpener](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/security.xtext.bmpn.simple.ui/src/security/xtext/bmpn/simple/ui/editor/ReflectiveTreeEditorOpener.xtend). Note that you should create the `security.xtext.bmpn.simple.ui.editor` package first, and then add the class to the package.
+	* [BPMN2UiModule](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/security.xtext.bmpn.simple.ui/src/security/xtext/bmpn/simple/ui/BPMN2UiModule.xtend)
+	* [BPSecDsLActivatorEx](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/security.xtext.bmpn.simple.ui/src/security/xtext/bmpn/simple/ui/internal/BPSecDsLActivatorEx.xtend). Note that you should create the `security.xtext.bmpn.simple.ui.internal` package first, and then add the class to the package.
+
+18. Add the [PatchXtextBuilderModule](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/security.xtext.bmpn.simple.ui/src/security/xtext/bmpn/simple/ui/PatchXtextBuilderModule.java) Java class to the `security.xtext.bmpn.simple.ui` package.
+
+19. Register the BPSecDsLActivatorEx as the `Bundle-Activator` in the [MANIFEST.MF](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/security.xtext.bmpn.simple.ui/META-INF/MANIFEST.MF#L27) file.
+
+20. Add the following section to the [plugin.xml](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/security.xtext.bmpn.simple.ui/plugin.xml)#L442-L447)
+
+````
+ <extension
+       point="org.eclipse.xtext.ui.shared.overridingGuiceModule">
+    <module
+          class="security.xtext.bmpn.simple.ui.PatchXtextBuilderModule">
+    </module>
+ </extension>
+````
+
+#### V. Manual Testing
+Start a Runtime Eclipse to verify that the parsing, linking, content assistant, hovering, hyperlink navigation, quickfixes, ... are working properly.
+
+When testing I had some problems that made me think that the code added for scoping was not working as expected. The problems arose when using Ctrl+Space to autocomplete with the elements from the bpmn2 model. I think the problems may be related to a bug similar to the one introduced in this [post](https://bugs.eclipse.org/bugs/show_bug.cgi?id=327478). The problem seems to be related to loading properly the bpmn2 resources. By closing the bpsec file (the dsl) and opening it again the problme seems to disappear.
  
 
 

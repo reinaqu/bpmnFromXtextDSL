@@ -162,7 +162,7 @@ public IScope getScope(EObject context, EReference reference) {
 #### V. Manual Testing
 Start a Runtime Eclipse to verify that the parsing, linking, content assistant, hovering, hyperlink navigation, quickfixes, ... are working properly.
 
-When testing I had some problems that made me think that the code added for scoping was not working as expected. The problems arose when using Ctrl+Space to autocomplete with the elements from the bpmn2 model. I think the problems may be related to a bug similar to the one introduced in this [post](https://bugs.eclipse.org/bugs/show_bug.cgi?id=327478). The problem seems to be related to loading properly the bpmn2 resources. By closing the bpsec file (the dsl) and opening it again the problme seems to disappear.
+When testing I had some problems that made me think that the code added for scoping was not working as expected. The problems arose when using Ctrl+Space to autocomplete with the elements from the bpmn2 model. I think the problems may be related to a bug similar to the one introduced in this [post](https://bugs.eclipse.org/bugs/show_bug.cgi?id=327478). The problem seems to be related to loading properly the bpmn2 resources. By closing the bpsec file (the dsl) and opening it again the problem seems to disappear.
  
 
 

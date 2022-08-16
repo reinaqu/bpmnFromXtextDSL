@@ -148,7 +148,7 @@ public IScope getScope(EObject context, EReference reference) {
 
 19. Register the BPSecDsLActivatorEx as the `Bundle-Activator` in the [MANIFEST.MF](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/security.xtext.bmpn.simple.ui/META-INF/MANIFEST.MF#L27) file.
 
-20. Add the following section to the [plugin.xml](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/security.xtext.bmpn.simple.ui/plugin.xml)#L442-L447)
+20. Add the following section to the [plugin.xml](https://github.com/reinaqu/bpmnFromXtextDSL/blob/main/security.xtext.bmpn.simple.ui/plugin.xml#L442-L447)
 
 ````
  <extension
